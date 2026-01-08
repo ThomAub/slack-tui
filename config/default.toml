@@ -1,0 +1,43 @@
+# slacktui default configuration
+# Copy to ~/.config/slacktui/config.toml and customize
+
+[auth]
+# App-level token for Socket Mode (requires connections:write scope)
+app_token = ""    # xapp-...
+
+# Bot token for Web API
+bot_token = ""    # xoxb-...
+
+# Optional: User token for user-context actions
+# user_token = ""  # xoxp-...
+
+[ui]
+theme = "default"                 # default | minimal | high-contrast
+sidebar_width = 20
+relative_time = true              # "5m ago" vs "10:32 AM"
+thread_collapse_threshold = 3     # Inline expand if ≤ this
+preview_length = 50               # Sidebar message preview
+
+[cache]
+retention_days = 30
+max_messages_per_channel = 1000
+stale_threshold_seconds = 300     # Fetch from API if older
+
+[network]
+max_inflight_requests = 4         # Parallel Web API calls
+reconnect_base_delay_ms = 1000    # Backoff base
+reconnect_max_delay_ms = 30000    # Backoff cap
+
+[logging]
+level = "info"                    # debug | info | warn | error
+file = "~/.local/share/slacktui/logs/slacktui.log"
+
+[keybindings]
+# Override defaults
+# quit = "Ctrl+q"
+# send_message = "Ctrl+Enter"
+
+[behavior]
+auto_mark_read = true
+confirm_delete = true
+send_typing = false
