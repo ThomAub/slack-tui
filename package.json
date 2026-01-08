@@ -1,12 +1,31 @@
 {
-  "name": "slack-tui",
-  "module": "index.ts",
+  "name": "slacktui",
+  "version": "0.1.0",
+  "description": "A Slack terminal UI with vim-first ergonomics",
   "type": "module",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
+  "bin": {
+    "slacktui": "./src/main.ts"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "scripts": {
+    "dev": "bun run --watch src/main.ts",
+    "start": "bun run src/main.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "test": "bun test",
+    "build": "bun run scripts/build.ts",
+    "doctor": "bun run scripts/doctor.ts"
+  },
+  "dependencies": {
+    "@slack/socket-mode": "^2.0.1",
+    "@slack/web-api": "^7.8.0",
+    "@toml-tools/parser": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.7.0"
   }
 }
